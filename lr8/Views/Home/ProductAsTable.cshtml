@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Products as table";
+}
+@model IEnumerable<Product>
+<html>
+<head>
+    <title>
+        @ViewData["Title"]
+    </title>
+</head>
+<body>
+    <div class="text-center">
+        <div class="display-4">
+            Products:
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Production date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <th scope="row">@product.Id</th>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>@product.CreatedDate.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
